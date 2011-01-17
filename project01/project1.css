@@ -1,15 +1,15 @@
 body {
   background-color: #AAAAAA;
-  font-family:Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 500;
 }
 
 #main {
   border-style: solid;
   border-width: 1px;
   padding: 0px;
-  margin: 0 0 0 0;
   width: 960px;
-  align: center;
+  margin: 0 auto;
 }
 
 div.clear {
@@ -19,11 +19,13 @@ div.clear {
 
 #header {
   background-color: #CCCCCC;
-  margin: 0 auto;
 }
 
 h1 {
   margin: 0 0 0 0;
+  padding-top: 5px;
+  padding-left: 5px;
+  letter-spacing: -2px;
 }
 
 h2 {
@@ -31,7 +33,6 @@ h2 {
 }
 
 div#sidebar h3 {
-  font-size: 150%;
   margin: 5px 5px 5px 5px;
 }
 
@@ -42,6 +43,9 @@ div#sidebar p {
 div#header p {
   color: #66666F;
   margin: 0 0 0 0;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  font-size: 80%;
 }
 
 #form {
@@ -63,6 +67,7 @@ div#header p {
   padding-top: 10px;
   padding-bottom: 10px;
   text-align: center;
+  font-size: 75%;
 }
 
 #links {
@@ -81,8 +86,8 @@ ul#list-nav li {
 
 ul#list-nav li a {
   text-decoration:none;
-  padding:5px;
-  width:100px;
+  padding:10px;
+  padding-right:25px;
   background:#000000;
   color:#FFFFFF;
   float:left;
@@ -91,4 +96,17 @@ ul#list-nav li a {
 
 ul#list-nav li a:hover {
   color:#FF0000;
+}
+
+#tablerow {
+  margin: 0 auto;
+}
+
+#buttonrow {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+#feelrow {
+  vertical-align:top
 }
