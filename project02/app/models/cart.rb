@@ -12,6 +12,10 @@ class Cart
   def initialize
     @items = []
   end
+
+  def total_price
+    @items.sum { |item| item.price }
+  end
   
   def add_product(product)
     current_item = @items.find {|item| item.product == product}
