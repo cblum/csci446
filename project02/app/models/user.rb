@@ -20,6 +20,12 @@ class User < ActiveRecord::Base
     end
     user
   end
+
+  def after_destroy
+    if USer.count.zero?
+      raise "Can't delete last user"
+    end
+  end
   
   # 'password' is a virtual attribute
   
