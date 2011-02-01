@@ -89,4 +89,3 @@ protected
   def authorize
   end
 end
-
