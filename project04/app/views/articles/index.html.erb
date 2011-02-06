@@ -1,0 +1,30 @@
+<h1>All the World's Articles</h1>
+
+<div id="newarticle">
+<%= link_to 'New article', new_article_path %>
+</div>
+
+<div id="articletable">
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Body</th>
+    <th>Creation Date</th>
+  </tr>
+
+<% @articles.each do |article| %>
+  <tr>
+    <td><%=h article.title %></td>
+    <td><%=h article.author %></td>
+    <td><%=h article.body %></td>
+    <td><%=h article.created_at.strftime("%A, %b. %d %Y") %></td>
+    <td><%= link_to 'Show', article %></td>
+    <td><%= link_to 'Edit', edit_article_path(article) %></td>
+    <td><%= link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+
+<br />

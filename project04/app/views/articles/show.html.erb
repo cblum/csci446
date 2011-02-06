@@ -1,0 +1,20 @@
+<%= link_to 'list all articles', articles_path %>
+<%= link_to 'edit', edit_article_path(@article) %> |
+
+
+<p>
+  <b>Title:</b>
+  <%=h @article.title %>
+</p>
+
+<p>
+  <b>Author:</b>
+  <%=h @article.author %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%=h simple_format(@article.body) %>
+</p>
+
+
