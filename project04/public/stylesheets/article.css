@@ -18,7 +18,7 @@
 }
 
 #articletable {
-  height: 400px;
+  height: 300px;
   overflow:auto;
 }
 
@@ -29,10 +29,6 @@
   border-left: 1px solid;
   border-right: 1px solid;
   padding-left: 5px;
-}
-
-#centeralign {
-  text-align: center;
 }
 
 #articletable .list-line-even {
@@ -47,6 +43,8 @@
   border-left: 1px solid;
   border-right: 1px solid;
   height: 30px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 #articletable .white {
@@ -59,6 +57,11 @@ a image {
   border: 0;
   background: #fff;
   color: #000;
+}
+
+a:hover image {
+  text-decoration: none;
+  background: #fff;
 }
 
 a{

@@ -9,7 +9,7 @@
     <th>Title</th>
     <th>Author</th>
     <th>Body</th>
-    <th id="centeralign">Creation Date</th>
+    <th>Creation Date</th>
   </tr>
 <% @articles.each do |article| %>
   <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
@@ -27,3 +27,5 @@
 </div>
 
 <br />
+
+<%=h @articles.length %> articles.

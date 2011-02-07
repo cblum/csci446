@@ -1,8 +1,7 @@
-<%= link_to 'list all articles', articles_path %>
-<%= link_to 'edit', edit_article_path(@article) %>
-<%= link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete %>
-
-
+<%= link_to image_tag('arrow_left.png') + 'list all articles', articles_path, :title => 'Back to the list of articles' %>
+<%= link_to image_tag('note_edit.png') + 'edit', edit_article_path(@article), :title => 'Edit this article' %>
+<%= link_to image_tag('cross.png') + 'delete', article_path, :confirm => 'Are you sure?', :method => :delete, :title => 'Delete this article' %>
+<%= mail_to "", image_tag('email.png') + 'email', :title => 'Email this article', :subject => @article.title, :body => request.url %>
 
 <p>
   <h1><%=h @article.title %></h1>
