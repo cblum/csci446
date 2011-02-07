@@ -1,27 +1,26 @@
-<h1>All the World's Articles</h1>
+<p id="articleheader">All the World's Articles</p>
 
 <div id="newarticle">
-<%= link_to 'New article', new_article_path %>
+<%= link_to image_tag('add.png') + 'Create an Article', new_article_path, :title => 'Add a new article to the list' %>
 </div>
-
 <div id="articletable">
 <table>
   <tr>
     <th>Title</th>
     <th>Author</th>
     <th>Body</th>
-    <th>Creation Date</th>
+    <th id="centeralign">Creation Date</th>
   </tr>
-
 <% @articles.each do |article| %>
-  <tr>
+  <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
     <td><%=h article.title %></td>
     <td><%=h article.author %></td>
-    <td><%=h article.body %></td>
+    <td><%=h truncate(article.body.gsub(/<.*?>/,''),
+		:length => 50) %></td>
     <td><%=h article.created_at.strftime("%A, %b. %d %Y") %></td>
-    <td><%= link_to 'Show', article %></td>
-    <td><%= link_to 'Edit', edit_article_path(article) %></td>
-    <td><%= link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td class="white"><%= link_to image_tag('zoom.png'), article, :title => "View this entry" %></td>
+    <td class="white"><%= link_to image_tag('note_edit.png'), edit_article_path(article), :title => "Edit this entry"  %></td>
+    <td class="white"><%= link_to image_tag('cross.png'), article, :confirm => 'Are you sure?', :method => :delete, :title => "Delete this entry" %></td>
   </tr>
 <% end %>
 </table>

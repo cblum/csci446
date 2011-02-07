@@ -1,19 +1,19 @@
 <%= link_to 'list all articles', articles_path %>
-<%= link_to 'edit', edit_article_path(@article) %> |
+<%= link_to 'edit', edit_article_path(@article) %>
+<%= link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete %>
+
 
 
 <p>
-  <b>Title:</b>
-  <%=h @article.title %>
+  <h1><%=h @article.title %></h1>
 </p>
 
 <p>
-  <b>Author:</b>
-  <%=h @article.author %>
+  by <%=h @article.author %>. <%=h @article.edits %> edits since 
+<%=h @article.created_at.strftime("%b. %d, %Y") %>. 
 </p>
 
 <p>
-  <b>Body:</b>
   <%=h simple_format(@article.body) %>
 </p>
 

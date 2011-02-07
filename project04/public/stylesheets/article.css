@@ -1,0 +1,67 @@
+#articleheader {
+  font-size: 150%;
+  margin-top: 0;
+  width: 300px;
+  float: left;
+}
+
+#newarticle {
+ float: left;
+}
+
+#articletable {
+  clear:both;
+}
+
+#articletable table {
+        border-collapse: collapse;
+}
+
+#articletable {
+  height: 400px;
+  overflow:auto;
+}
+
+#articletable th {
+  background: #888;
+  text-align: left;
+  border-top: 1px solid;
+  border-left: 1px solid;
+  border-right: 1px solid;
+  padding-left: 5px;
+}
+
+#centeralign {
+  text-align: center;
+}
+
+#articletable .list-line-even {
+  background:   #ccc;
+}
+
+#articletable .list-line-odd {
+  background:   #fff;
+}
+
+#articletable td{
+  border-left: 1px solid;
+  border-right: 1px solid;
+  height: 30px;
+}
+
+#articletable .white {
+  background: #fff;
+  border-left: none;
+  border-right: none;
+}
+
+a image {
+  border: 0;
+  background: #fff;
+  color: #000;
+}
+
+a{
+  color: #000;
+  text-decoration: none;
+}
