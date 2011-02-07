@@ -1,4 +1,4 @@
-<%= link_to image_tag('arrow_left.png') + 'back', :back, :title => 'Back to the list of articles' %>
+<%= link_to image_tag('arrow_left.png') + 'back', session[:last_page], :title => 'Back to the previous page' %>
 
 <h1>Editing "<%=h @article.title %>"</h1>
 

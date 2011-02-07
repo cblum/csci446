@@ -20,6 +20,7 @@
 #articletable {
   height: 300px;
   overflow:auto;
+  width: 900px;
 }
 
 #articletable th {
