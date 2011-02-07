@@ -1,3 +1,7 @@
+<% content_for :subtitle do %>
+... what's "Articl" in Spanish anyways?
+<% end %>
+
 <% session[:last_page] = request.url %>
 
 <%= link_to image_tag('arrow_left.png') + 'list all articles', articles_path, :title => 'Back to the list of articles' %>
