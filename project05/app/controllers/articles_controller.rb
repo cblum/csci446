@@ -60,7 +60,6 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.update_attributes(params[:article])
-	  @article.update_attribute( :edits, @article.edits + 1 )
         format.html { redirect_to( session[:last_page], :notice => 'Article was successfully updated.') }
         format.xml  { head :ok }
       else

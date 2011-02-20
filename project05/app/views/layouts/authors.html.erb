@@ -4,17 +4,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Articl.es -- All the World's Articles (with a name .com hipster love)</title>
-  <%= stylesheet_link_tag 'scaffold', 'article' %>
+  <title>Authors: <%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'scaffold' %>
 </head>
 <body>
-<h1 id="bigheader">Articl.es</h1>
-<h4 id="subtitle"><%= yield(:subtitle) %></h4> 
 
-<ul class="menubar">
-  <li><%= link_to "articles", articles_path %></li>
-  <li><%= link_to "authors", "#" %></li>
-</ul>
 <p style="color: green"><%= notice %></p>
 
 <%= yield %>

@@ -71,10 +71,27 @@ a image {
 
 a:hover image {
   text-decoration: none;
-  background: #fff;
+  background-color: #fff;
+}
+
+a:hover {
+  color: black;
+  background-color: #fff;
 }
 
 a{
   color: #000;
   text-decoration: none;
+}
+
+ul.menubar {
+  list-style-type: none;
+  margin: 0px 0px 20px 0px;
+  padding: 10px;
+  background-color: #F0F0F0;
+}
+
+ul.menubar li {
+  display: inline;
+  margin-right: 100px;
 }
