@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(:version => 20110220210805) do
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "edits",      :default => 0
     t.integer  "author_id"
+    t.integer  "edits",      :default => 0
   end
 
   create_table "authors", :force => true do |t|

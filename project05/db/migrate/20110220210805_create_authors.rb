@@ -6,8 +6,6 @@ class CreateAuthors < ActiveRecord::Migration
       t.timestamps
     end
 	
-	add_column :articles, :author_id, :integer
-	
 	Article.all.each do |article|
 	  author = Author.create(:name => article.author)
 	  article.author = author
