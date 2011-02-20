@@ -1,0 +1,26 @@
+<% content_for :subtitle do %>
+... not just for the country of Spain
+<% end %>
+
+<%= link_to image_tag('arrow_left.png') + 'list all articles', articles_path, :title => 'View all articles' %>
+<h2>Creating a New Article</h2>
+
+<% form_for(@article) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :author %><br />
+    <%= f.text_field :author %>
+  </p>
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>

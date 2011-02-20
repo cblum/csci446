@@ -1,0 +1,25 @@
+<% content_for :subtitle do %>
+... what's "Articl" in Spanish anyways?
+<% end %>
+
+<% session[:last_page] = request.url %>
+
+<%= link_to image_tag('arrow_left.png') + 'list all articles', articles_path, :title => 'Back to the list of articles' %>
+<%= link_to image_tag('note_edit.png') + 'edit', edit_article_path(@article), :title => 'Edit this article' %>
+<%= link_to image_tag('cross.png') + 'delete', article_path, :confirm => 'Are you sure?', :method => :delete, :title => 'Delete this article' %>
+<%= mail_to "", image_tag('email.png') + 'email', :title => 'Email this article', :subject => @article.title, :body => request.url %>
+
+<p>
+  <h1><%=h @article.title %></h1>
+</p>
+
+<p>
+  by <%=h @article.author %>. <%=h @article.edits %> edits since 
+<%=h @article.created_at.strftime("%b. %d, %Y") %>. 
+</p>
+
+<p>
+  <%=h simple_format(@article.body) %>
+</p>
+
+

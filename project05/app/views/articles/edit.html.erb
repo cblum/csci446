@@ -1,0 +1,27 @@
+<% content_for :subtitle do %>
+... my cousin works or Bit.ly
+<% end %>
+
+<%= link_to image_tag('arrow_left.png') + 'back', session[:last_page], :title => 'Back to the previous page' %>
+
+<h1>Editing "<%=h @article.title %>"</h1>
+
+<% form_for(@article) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :author %><br />
+    <%= f.text_field :author %>
+  </p>
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
