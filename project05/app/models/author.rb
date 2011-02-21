@@ -5,7 +5,11 @@ class Author < ActiveRecord::Base
   
   has_many :articles
 
-  has_attached_file :photo
+  has_attached_file :photo,
+           :url => '/assets/:class/:attachment/:id/:style/:filename',
+	     :styles => {
+      :thumb=> "100x100#",
+      :small  => "150x150>" }
 
   def to_s
     name

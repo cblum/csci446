@@ -15,6 +15,7 @@ Rails::Initializer.run do |config|
   # config.autoload_paths += %W( #{RAILS_ROOT}/extras )
 
   config.gem "paperclip"
+  config.gem "will_paginate"
 
   # Specify gems that this application depends on and have them installed with rake gems:install
   # config.gem "bj"

@@ -15,7 +15,7 @@
 }
 
 #newarticle {
- float: left;
+  float: left;
 }
 
 #articletable {
@@ -23,12 +23,10 @@
 }
 
 #articletable table {
-        border-collapse: collapse;
+  border-collapse: collapse;
 }
 
 #articletable {
-  height: 340px;
-  overflow:auto;
   width: 900px;
 }
 

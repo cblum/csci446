@@ -5,7 +5,9 @@ class ArticlesController < ApplicationController
   before_filter :load_authors, :only => [:new, :edit, :update]
 
   def index
-    @articles = Article.all(:include => :author)
+    #@articles = Article.all(:include => :author)
+    @num_art = Article.count
+    @articles = Article.paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
