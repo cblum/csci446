@@ -20,7 +20,7 @@
 <% @articles.each do |article| %>
   <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
     <td><%=h article.title %></td>
-    <td><%=h article.author.name %></td>
+    <td><%=h article.author %></td>
     <td><%=h truncate(article.body.gsub(/<.*?>/,''),
 		:length => 50) %></td>
     <td><%=h article.created_at.strftime("%A, %b. %d %Y") %></td>

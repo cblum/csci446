@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-  validates_presence_of :title, :author, :body
+  validates_presence_of :title, :body
   before_save :increment_edits
 
   belongs_to :author

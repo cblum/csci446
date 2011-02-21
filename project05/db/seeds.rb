@@ -10,6 +10,8 @@ Article.delete_all
 Author.delete_all
 
 new_author = Author.create!(:name=> 'Johnny on the Spot')
+Author.create!(:name=> 'McPopCollar')
+Author.create!(:name=> 'Robert Frost')
 
 
 15.times do

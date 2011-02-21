@@ -1,8 +1,11 @@
 class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.xml
+
+  before_filter :load_authors, :only => [:new, :edit, :update]
+
   def index
-    @articles = Article.all
+    @articles = Article.all(:include => :author)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -80,4 +83,10 @@ class ArticlesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  private
+
+    def load_authors
+      @authors = Author.all
+    end
 end
