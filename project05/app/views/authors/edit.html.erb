@@ -1,4 +1,8 @@
-<h1>Editing author</h1>
+<% content_for :subtitle do %>
+...this one time, I drank a gallon of milk in 10 minutes
+<% end %>
+
+<h1>Editing <%=h @author.name %></h1>
 
 <% form_for(@author, :html => {:multipart => true}) do |f| %>
   <%= f.error_messages %>

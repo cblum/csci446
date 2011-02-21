@@ -14,8 +14,7 @@
 </p>
 
 <p>
-  by <%=h @article.author %>. <%=h @article.edits %> edits since 
-<%=h @article.created_at.strftime("%b. %d, %Y") %>. 
+  by <%=h @article.author %>. <%=h pluralize(@article.edits, 'edit')%> since <%=h @article.created_at.strftime("%b. %d, %Y") %>. 
 </p>
 
 <p>

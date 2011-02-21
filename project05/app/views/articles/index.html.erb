@@ -9,6 +9,10 @@
 <div id="newarticle">
 <%= link_to image_tag('add.png') + 'Create an Article', new_article_path, :title => 'Add a new article to the list' %>
 </div>
+
+<br />
+<%= will_paginate @articles %>
+
 <div id="articletable">
 <table>
   <tr>
@@ -16,14 +20,15 @@
     <th>Author</th>
     <th>Body</th>
     <th>Creation Date</th>
+    <th class="white"></th>
   </tr>
 <% @articles.each do |article| %>
   <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
-    <td><%=h article.title %></td>
-    <td><%=h article.author %></td>
-    <td><%=h truncate(article.body.gsub(/<.*?>/,''),
+    <td class="lrborder"><%=h article.title %></td>
+    <td class="lrborder"><%=h article.author %></td>
+    <td class="lrborder"><%=h truncate(article.body.gsub(/<.*?>/,''),
 		:length => 50) %></td>
-    <td><%=h article.created_at.strftime("%A, %b. %d %Y") %></td>
+    <td class="lrborder"><%=h article.created_at.strftime("%A, %b. %d %Y") %></td>
     <td class="white"><%= link_to image_tag('zoom.png'), article, :title => "View this entry" %></td>
     <td class="white"><%= link_to image_tag('note_edit.png'), edit_article_path(article), :title => "Edit this entry" %></td>
     <td class="white"><%= link_to image_tag('cross.png'), article, :confirm => 'Are you sure?', :method => :delete, :title => "Delete this entry" %></td>

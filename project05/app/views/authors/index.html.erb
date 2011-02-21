@@ -1,20 +1,27 @@
-<h1>Listing authors</h1>
+<% content_for :subtitle do %>
+...all the taste, none of the carbs
+<% end %>
 
+<p id=authorheader>Authors of the World</p>
+
+<div id="newauthor">
+<%= link_to image_tag('add.png') + 'Create an Author', new_author_path, :title => 'Add a new author to the list' %>
+</div>
+
+<div id="authortable">
 <table>
   <tr>
     <th>Name</th>
   </tr>
 
 <% @authors.each do |author| %>
-  <tr>
+  <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
     <td><%=h author.name %></td>
-    <td><%= link_to 'Show', author %></td>
-    <td><%= link_to 'Edit', edit_author_path(author) %></td>
-    <td><%= link_to 'Destroy', author, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td class="white"><%= link_to image_tag('zoom.png'), author, 
+:title => "View this entry" %></td>
+    <td class="white"><%= link_to image_tag('note_edit.png'), edit_author_path(author), :title => "Edit this entry" %></td>
+    <td class="white"><%= link_to image_tag('cross.png'), author, :confirm => 'Are you sure?', :method => :delete, :title => "Delete this entry" %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New author', new_author_path %>
+</div>

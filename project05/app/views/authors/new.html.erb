@@ -1,6 +1,10 @@
-<h1>New author</h1>
+<% content_for :subtitle do %>
+...make sure to look your best!
+<% end %>
 
-<% form_for(@author, :html => {:multipart => true}) ) do |f| %>
+<h1>Creating a New Author</h1>
+
+<% form_for(@author, :html => {:multipart => true}) do |f| %>
   <%= f.error_messages %>
 
   <p>

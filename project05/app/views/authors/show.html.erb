@@ -1,3 +1,7 @@
+<% content_for :subtitle do %>
+...here's looking at ya!
+<% end %>
+
 <p>
   <b>Name:</b>
   <%=h @author.name %>
@@ -7,6 +11,17 @@
   <%= image_tag @author.photo.url(:thumb) %>
 </p>
 
+<table id="auth_art_table">
+  <tr>
+    <th>Articles:</th>
+  </tr>
+  <% @auth_art.each do |article| %>
+    <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
+      <td class="auth_art"><%=h article.title %></td>
+      <td class="white"><%= link_to image_tag('zoom.png'), article, :title => "View this entry" %></td>
+    </tr>
+  <% end %>
+</table>
 
 <%= link_to 'Edit', edit_author_path(@author) %> |
 <%= link_to 'Back', authors_path %>

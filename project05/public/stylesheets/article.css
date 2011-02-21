@@ -14,13 +14,29 @@
   float: left;
 }
 
+#authorheader {
+  font-size: 150%;
+  margin-top: 0;
+  width: 400px;
+  float: left;
+}
+
 #newarticle {
+  float: left;
+}
+
+#newauthor {
   float: left;
 }
 
 #articletable {
   clear:both;
 }
+
+#authortable {
+  clear:both;
+}
+
 
 #articletable table {
   border-collapse: collapse;
@@ -30,7 +46,7 @@
   width: 900px;
 }
 
-#articletable th {
+th {
   background: #888;
   text-align: left;
   border-top: 1px solid;
@@ -39,27 +55,41 @@
   padding-left: 5px;
 }
 
-#articletable .list-line-even {
+.list-line-even {
   background:   #ccc;
 }
 
-#articletable .list-line-odd {
+.list-line-odd {
   background:   #fff;
 }
 
 #articletable td{
-  border-left: 1px solid;
-  border-right: 1px solid;
   height: 30px;
   padding-left: 5px;
   padding-right: 5px;
 }
 
-#articletable .white {
+#auth_art_table {
+  border-collapse: collapse;
+}
+
+.auth_art {
+  border: 1px solid;
+}
+
+.lrborder {
+  border-left: 1px solid;
+  border-right: 1px solid;
+}
+
+.white {
   background: #fff;
   border-left: none;
   border-right: none;
+  border-top: none;
 }
+
+
 
 a image {
   border: 0;
