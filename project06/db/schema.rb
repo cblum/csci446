@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110307055436) do
+ActiveRecord::Schema.define(:version => 20110307061234) do
 
   create_table "games", :force => true do |t|
     t.string   "title",                              :null => false
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20110307055436) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "admin",             :default => false
   end
 
 end
