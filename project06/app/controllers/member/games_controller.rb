@@ -1,10 +1,11 @@
-class GamesController < ApplicationController
+class Member::GamesController < Member::MemberController
 
-  #before_filter :load_users, :only => [:new, :edit, :update]
+  #before_filter :load_users, :only => [:index, :new, :edit, :update]
 
   def index
     #@games = Games.all
-	@games = Games.paginate(:page => params[:page], :order => 'created_at DESC')
+	@user = Users.find(params[:id])
+	@games = @user.games.all #paginate(:page => params[:page], :order => 'created_at DESC')
   end
 
   def show
@@ -18,7 +19,7 @@ class GamesController < ApplicationController
   def create
     @games = Games.new(params[:games])
     if @games.save
-      flash[:notice] = "Successfully created games. Hooray"
+      flash[:notice] = "Successfully created games."
       redirect_to @games
     else
       render :action => 'new'

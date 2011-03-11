@@ -1,6 +1,6 @@
-class GamesController < ApplicationController
+class Admin::GamesController < Admin::AdminController
 
-  #before_filter :load_users, :only => [:new, :edit, :update]
+  before_filter :load_users, :only => [:new, :edit, :update]
 
   def index
     #@games = Games.all
@@ -18,8 +18,8 @@ class GamesController < ApplicationController
   def create
     @games = Games.new(params[:games])
     if @games.save
-      flash[:notice] = "Successfully created games. Hooray"
-      redirect_to @games
+      flash[:notice] = "Successfully created games. Yay"
+      redirect_to admin_root_url
     else
       render :action => 'new'
     end
@@ -33,7 +33,7 @@ class GamesController < ApplicationController
     @games = Games.find(params[:id])
     if @games.update_attributes(params[:games])
       flash[:notice] = "Successfully updated games."
-      redirect_to @games
+      redirect_to admin_root_url
     else
       render :action => 'edit'
     end
@@ -43,6 +43,13 @@ class GamesController < ApplicationController
     @games = Games.find(params[:id])
     @games.destroy
     flash[:notice] = "Successfully destroyed games."
-    redirect_to games_url
+    redirect_to admin_root_url
   end
+    
+  private
+
+    def load_users
+      @users = User.all
+	  @selected_user = current_user
+    end
 end

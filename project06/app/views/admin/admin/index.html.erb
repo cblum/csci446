@@ -1,6 +1,16 @@
+<% content_for :subtitle do %>
+Admin
+<% end %>
+
+<%=h pluralize(@num_games, 'Total Game') %>.
+
+<div id="newgame">
+  <%= link_to 'Add a game', new_admin_game_path, :title => 'Add a new game to the list' %>
+</div>
+
 <%= will_paginate @games %>
 
-<table>
+<table class="mytables">
   <tr>
     <th>Title</th>
     <th>Rating</th>
@@ -8,7 +18,7 @@
   </tr>
   <% for games in @games %>
     <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
-      <td><%=h games.title %></td>
+      <td><%=h link_to games.title, edit_admin_game_path(games) %></td>
       <td><%=h games.description %></td>
       <td><%=h games.created_at.to_s(:created_date)  %> by <%=h games.user %></td>
     </tr>

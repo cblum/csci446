@@ -2,3 +2,50 @@
   float: right;
   font-size: 12px;
 }
+
+.list-line-even {
+  background:   #ccc;
+}
+
+.list-line-odd {
+  background:   #fff;
+}
+
+
+ul.menubar {
+  list-style-type: none;
+  margin: 0px 0px 20px 0px;
+  padding: 10px;
+  background-color: #F0F0F0;
+}
+
+ul.menubar li {
+  display: inline;
+  margin-right: 100px;
+}
+
+th {
+  background: #888;
+  text-align: left;
+  border-top: 1px solid;
+  border-left: 1px solid;
+  border-right: 1px solid;
+  padding-left: 5px;
+}
+
+h1 {
+  clear: both;
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  align: center;
+}
+
+td {
+  border-left: 1px solid;
+  border-right: 1px solid;
+  padding-right: 5px;
+  padding-left: 5px;
+}

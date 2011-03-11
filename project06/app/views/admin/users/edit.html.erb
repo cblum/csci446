@@ -1,11 +1,15 @@
-<h1>Editing user</h1>
+<% content_for :subtitle do %>
+Admin
+<% end %>
+
+<h2>Editing user</h2>
 
 <% form_for(@user, :html => {:multipart => true}) do |f| %>
   <%= f.error_messages %>
 
   <p>
     <%= f.label :username %><br />
-    <%= f.text_field :username, :disabled => true %>
+    <%= f.text_field :username %>
   </p>
   <p>
     <%= f.label :password %><br />

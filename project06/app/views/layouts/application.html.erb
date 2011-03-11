@@ -4,19 +4,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Users: <%= controller.action_name %></title>
+  <title>Gamez</title>
   <%= stylesheet_link_tag 'scaffold', 'mycss' %>
 </head>
 <body>
   <div id="user_nav">
     <% if current_user %>
-	  <%= link_to "Edit Profile", edit_user_path(:current) %> |
+	  Logged in as <%= link_to current_user, edit_member_user_path(:current) %>, <%= current_user.role_symbols %>.
+	  <% if permitted_to?(:index, :admin_admin) %>
+	    <%= link_to "Admin", admin_root_url %>
+	  <% end %>
+	  <%= link_to "My Games", edit_member_user_path(:current) %>
       <%= link_to "Logout", logout_path %>
     <% else %>
       <%= link_to "Register", new_user_path %> |
       <%= link_to "Login", login_path %>
     <% end %>
   </div>
+
+<h1><%= link_to "Gamez", root_url %> <%= yield(:subtitle) %></h1>
+
+<% if permitted_to?(:index, :admin_admin) %>
+  <ul class="menubar">
+    <li><%= link_to "Games", admin_root_url %></li>
+    <li><%= link_to "Users", admin_users_path %></li>
+    <li><%= link_to "Roles", admin_root_url %></li>
+  </ul>
+<% end %>
 
 <p style="color: green"><%= notice %></p>
 

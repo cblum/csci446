@@ -3,7 +3,7 @@ class CreateGames < ActiveRecord::Migration
     create_table :games do |t|
       t.string :title, :null => false
       t.string :description, :default => "Unrated"
-      t.integer :author_id
+      t.integer :user_id
       t.timestamps
     end
   end

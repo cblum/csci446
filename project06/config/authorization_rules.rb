@@ -1,17 +1,21 @@
 authorization do
   role :admin do
-    has_permission_on [:games, :users], :to => [:index, :show, :new, :create, :edit, :update, :destroy]
+    includes :member
+    has_permission_on :admin_admin, :to => [:index, :show, :new, :create, :edit, :update, :destroy]
+	has_permission_on :admin_users, :to => [:index, :show, :new, :create, :edit, :update, :destroy]
+	has_permission_on :admin_games, :to => [:index, :show, :new, :create, :edit, :update, :destroy]
   end
   
-  role :guest
-    has_permission_on :articles, :to => [:index, :show]
+  role :guest do
+    has_permission_on :games, :to => [:index, :show]
+  end
   
-  role :author do
+  role :member do
     includes :guest
-    has_permission_on :games, :to => [:edit, :update] do
+    has_permission_on :member_member, :to => [:index]
+    has_permission_on :member_games, :to => [:edit, :update] do
       if_attribute :user => is { user }
-	has_permission_on :users, :to => [:edit, :update] do
-	  if_attribute "SOMETIME FIX THIS"
+	has_permission_on :member_users, :to => [:edit, :update]
 	end  
   end
 end
