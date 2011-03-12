@@ -28,7 +28,8 @@ class Admin::UsersController < Admin::AdminController
   end
 
   def edit
-    @user = current_user
+    @user = User.find(params[:id])
+	@roles = Role.all
   end
 
   def create
@@ -46,13 +47,14 @@ class Admin::UsersController < Admin::AdminController
   end
 
   def update
-    @user = current_user
-
+    @user = User.find(params[:id])
+    @roles = Role.all
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to(root_url, :notice => 'User was successfully updated.') }
+        format.html { redirect_to(root_url, :notice => 'Successfully updated profile') }
         format.xml  { head :ok }
       else
+	  flash[:error] = "Could not save profile"
         format.html { render :action => "edit" }
         format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
       end

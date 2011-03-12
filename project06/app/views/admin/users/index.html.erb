@@ -16,10 +16,14 @@ Admin
 
 <% @users.each do |user| %>
   <tr>
-    <td><%=h user %></td>
+    <td><%=h link_to user, edit_admin_user_path(user) %></td>
     <td><%=h user.username %></td>
-    <td><%=h time_ago_in_words(user.last_login_at) %></td>
-    <td><%=h user %></td>
+    <% if user.last_login_at %>
+      <td><%=h time_ago_in_words(user.last_login_at) %></td>
+    <% else %>
+      <td></td>
+    <% end %>
+    <td><%=h user.num_games %></td>
   </tr>
 <% end %>
 </table>

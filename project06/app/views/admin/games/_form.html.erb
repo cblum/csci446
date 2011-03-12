@@ -5,12 +5,18 @@
     <%= f.text_field :title %>
   </p>
   <p>
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
+    <%= f.radio_button :description, "Amazing" %>
+    <%= f.label "Amazing" %><br />
+    <%= f.radio_button :description, "Good" %>
+    <%= f.label "Good" %><br />
+    <%= f.radio_button :description, "Meh" %>
+    <%= f.label "Meh" %><br />
+    <%= f.radio_button :description, "Horrible" %>
+    <%= f.label "Horrible" %><br />
   </p>
   <p>
     <%= f.label :creator %>
-    <%= f.select :user_id, @users.collect { |u| [u.to_s, u.id]}, :include_blank => true %>
+    <%= f.select :user_id, @users.collect { |u| [u.to_s, u.id]} %>
   </p>
-  <p><%= f.submit %></p>
+  <p><%= f.submit "Friendship is Magic"%></p>
 <% end %>

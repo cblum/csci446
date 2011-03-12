@@ -1,4 +1,8 @@
+<h2>My Gamez</h2>
 
+<%= link_to "add a new game", new_member_game_path %>
+
+<%= will_paginate @games %>
 
 <table>
   <tr>
@@ -8,9 +12,21 @@
   </tr>
   <% for games in @games %>
     <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
-      <td><%=h games.title %></td>
+      <td><%=h link_to games.title, edit_member_game_path(games) %></td>
       <td><%=h games.description %></td>
-      <td><%=h games.created_at.to_s(:created_date)  %> by <%=h games.user %></td>
+      <% if games.user.eql?(current_user) %>
+		<td><%=h games.created_at.to_s(:created_date)  %> by me</td>
+	  <% end %>
     </tr>
   <% end %>
 </table>
+
+<% if @total_games > 0 %>
+  <p>
+    I've created <%= @total_games %> games, 
+<%= number_to_percentage(100*@rated_games.to_f/@total_games, :precision => 1) %> of which are rated.
+  </p>
+<% else %>
+  <p>Go forth and make some games!</p>
+<% end %>
+

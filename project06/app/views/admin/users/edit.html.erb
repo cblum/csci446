@@ -4,7 +4,7 @@ Admin
 
 <h2>Editing user</h2>
 
-<% form_for(@user, :html => {:multipart => true}) do |f| %>
+<% form_for([:admin, @user], :html => {:multipart => true}) do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -37,9 +37,14 @@ Admin
     <%= image_tag @user.photo.url(:thumb) %>
   </p>
   <p>
+    <%= f.label :role %>
+    <%= f.select :role_id, @roles.collect { |r| [r.name, r.id]} %>
+  </p>
+  <p>
     <%= f.submit 'Update' %>
   </p>
 <% end %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<p>
+  <%= link_to "Back to Admin Home", admin_root_url %>
+</p>

@@ -1,4 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :roles
   map.resources :games
   map.resources :users
 
@@ -12,6 +13,7 @@ ActionController::Routing::Routes.draw do |map|
     #admin.resources :roles
 	admin.resources :users
 	admin.resources :games
+	admin.resources :roles
 	admin.root :controller => 'admin', :action => 'index'
   end
   

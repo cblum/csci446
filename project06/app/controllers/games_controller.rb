@@ -4,19 +4,19 @@ class GamesController < ApplicationController
 
   def index
     #@games = Games.all
-	@games = Games.paginate(:page => params[:page], :order => 'created_at DESC')
+	@games = Game.paginate(:page => params[:page], :order => 'created_at DESC')
   end
 
   def show
-    @games = Games.find(params[:id])
+    @games = Game.find(params[:id])
   end
 
   def new
-    @games = Games.new
+    @games = Game.new
   end
 
   def create
-    @games = Games.new(params[:games])
+    @games = Game.new(params[:games])
     if @games.save
       flash[:notice] = "Successfully created games. Hooray"
       redirect_to @games
@@ -26,11 +26,11 @@ class GamesController < ApplicationController
   end
 
   def edit
-    @games = Games.find(params[:id])
+    @games = Game.find(params[:id])
   end
 
   def update
-    @games = Games.find(params[:id])
+    @games = Game.find(params[:id])
     if @games.update_attributes(params[:games])
       flash[:notice] = "Successfully updated games."
       redirect_to @games
@@ -40,7 +40,7 @@ class GamesController < ApplicationController
   end
 
   def destroy
-    @games = Games.find(params[:id])
+    @games = Game.find(params[:id])
     @games.destroy
     flash[:notice] = "Successfully destroyed games."
     redirect_to games_url

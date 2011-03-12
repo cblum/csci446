@@ -1,49 +1,53 @@
 class Member::GamesController < Member::MemberController
 
-  #before_filter :load_users, :only => [:index, :new, :edit, :update]
+  before_filter :load_users, :only => [:index, :new, :create, :edit, :update]
 
   def index
     #@games = Games.all
-	@user = Users.find(params[:id])
-	@games = @user.games.all #paginate(:page => params[:page], :order => 'created_at DESC')
+	@games = current_user.games.paginate :page => params[:page], :order => 'created_at DESC'
   end
 
   def show
-    @games = Games.find(params[:id])
   end
 
   def new
-    @games = Games.new
+    @games = Game.new
   end
 
   def create
-    @games = Games.new(params[:games])
+    @games = Game.new(params[:game])
+    @games.user = current_user
     if @games.save
-      flash[:notice] = "Successfully created games."
-      redirect_to @games
+      flash[:notice] = "Successfully added #{@games.title}."
+      redirect_to member_root_url
     else
+	flash[:error] = "Could not create game"
       render :action => 'new'
     end
   end
 
   def edit
-    @games = Games.find(params[:id])
+    @games = Game.find(params[:id])
   end
 
   def update
-    @games = Games.find(params[:id])
-    if @games.update_attributes(params[:games])
-      flash[:notice] = "Successfully updated games."
-      redirect_to @games
+    @games = Game.find(params[:id])
+    if @games.update_attributes(params[:game])
+      flash[:notice] = "Successfully updated #{@games.title}."
+      redirect_to member_root_url
     else
+	flash[:error] = "Could not save changes"
       render :action => 'edit'
     end
   end
 
   def destroy
-    @games = Games.find(params[:id])
-    @games.destroy
-    flash[:notice] = "Successfully destroyed games."
-    redirect_to games_url
   end
+
+  private
+
+    def load_users
+      @users = User.all
+	@selected_user = current_user
+    end
 end

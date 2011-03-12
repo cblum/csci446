@@ -1,0 +1,16 @@
+<% content_for :subtitle do %>
+Admin
+<% end %>
+
+<% form_for [:admin, @role] do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>
+
+<p>
+  <%= link_to "Back to Admin Home", admin_root_url %>
+</p>

@@ -41,12 +41,16 @@ class UsersController < ApplicationController
   # POST /users.xml
   def create
     @user = User.new(params[:user])
+    @user.current_login_at = Time.now
+    @user.last_login_at = Time.now
+    @user.role = Role.find_or_create_by_name("member")
 
     respond_to do |format|
-      if @user.save
-        format.html { redirect_to(root_url, :notice => 'Registration successful.') }
+      if verify_recaptcha() and @user.save
+        format.html { redirect_to(member_root_url, :notice => 'Registration successful. Welcome, #{@user_session.record.firstname} #{@user_session.record.lastname}') }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
+	  flash[:error] = "Could not register you"
         format.html { render :action => "new" }
         format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
       end

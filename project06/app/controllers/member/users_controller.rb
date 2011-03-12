@@ -13,23 +13,11 @@ class Member::UsersController < Member::MemberController
   # GET /users/1
   # GET /users/1.xml
   def show
-    @user = User.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @user }
-    end
   end
 
   # GET /users/new
   # GET /users/new.xml
   def new
-    @user = User.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @user }
-    end
   end
 
   # GET /users/1/edit
@@ -44,8 +32,8 @@ class Member::UsersController < Member::MemberController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to(root_url, :notice => 'Registration successful.') }
-        format.xml  { render :xml => @user, :status => :created, :location => @user }
+        format.html { redirect_to(member_root_url, :notice => 'Registration successful.') }
+        format.xml  { render :xml => @user, :status => :created, :location => member_root_url }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
@@ -60,11 +48,12 @@ class Member::UsersController < Member::MemberController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to(root_url, :notice => 'User was successfully updated.') }
-        format.xml  { head :ok }
+        format.html { redirect_to(member_root_url, :notice => 'Successfully updated profile') }
+        format.xml  { head :ok, :location => member_root_url }
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+	  flash[:error] = "Could not save profile"
+        format.html { render :controller => 'member', :action => "edit" }
+        format.xml  { render :xml => edit_member_user_path(@user).errors, :status => :unprocessable_entity }
       end
     end
   end

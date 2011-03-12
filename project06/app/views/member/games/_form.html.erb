@@ -1,12 +1,18 @@
-<% form_for @games do |f| %>
+<% form_for [:member, @games] do |f| %>
   <%= f.error_messages %>
   <p>
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </p>
   <p>
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
+    <%= f.radio_button :description, "Amazing" %>
+    <%= f.label "Amazing" %><br />
+    <%= f.radio_button :description, "Good" %>
+    <%= f.label "Good" %><br />
+    <%= f.radio_button :description, "Meh" %>
+    <%= f.label "Meh" %><br />
+    <%= f.radio_button :description, "Horrible" %>
+    <%= f.label "Horrible" %><br />
   </p>
-  <p><%= f.submit %></p>
+  <p><%= f.submit "Do that funky thing!"%></p>
 <% end %>

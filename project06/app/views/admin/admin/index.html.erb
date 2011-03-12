@@ -20,7 +20,11 @@ Admin
     <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
       <td><%=h link_to games.title, edit_admin_game_path(games) %></td>
       <td><%=h games.description %></td>
-      <td><%=h games.created_at.to_s(:created_date)  %> by <%=h games.user %></td>
+	  <% if games.user.eql?(current_user) %>
+		<td><%=h games.created_at.to_s(:created_date)  %> by me</td>
+	  <% else %>
+	    <td><%=h games.created_at.to_s(:created_date)  %> by <%=h games.user %></td>
+	  <% end %>
     </tr>
   <% end %>
 </table>

@@ -1,6 +1,6 @@
-<h1>Editing user</h1>
+<h2>Editing user</h2>
 
-<% form_for(@user, :html => {:multipart => true}) do |f| %>
+<% form_for([:member, @user], :html => {:multipart => true}) do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -37,5 +37,6 @@
   </p>
 <% end %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<p>
+  <%= link_to "Back to My Gamez", member_root_url %>
+</p>
